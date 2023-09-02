@@ -1,4 +1,4 @@
-package com.usersinfo;
+package com.andx.usersinfo;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "UsersInfo";
+    return "Users Info";
   }
 
   /**

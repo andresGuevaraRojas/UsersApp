@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.usersinfo"
+    namespace "com.andx.usersinfo"
     defaultConfig {
-        applicationId "com.usersinfo"
+        applicationId "com.andx.usersinfo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

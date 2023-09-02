@@ -1,4 +1,4 @@
-package com.usersinfo;
+package com.andx.usersinfo;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
