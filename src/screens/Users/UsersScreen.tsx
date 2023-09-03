@@ -9,10 +9,10 @@ import {
   Text,
   Pressable,
 } from 'react-native';
-import {RootStackScreenProps} from '../navigation/RootStackNavigator';
-import {User, getUsers} from '../services/UserService';
-import UserListItem from '../components/UserListItem';
-import UserListSeparator from '../components/UserListSeparator';
+import {RootStackScreenProps} from '../../navigation/RootStackNavigator';
+import {User, getUsers} from '../../services/UserService';
+import UserListItem from '../../components/UserListItem';
+import UserListSeparator from '../../components/UserListSeparator';
 
 function UsersScreen({navigation}: RootStackScreenProps<'Users'>) {
   const [currentPage, setCurrentPage] = useState(1);

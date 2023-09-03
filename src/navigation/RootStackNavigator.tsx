@@ -1,11 +1,13 @@
 import {StackScreenProps, createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import UsersScreen from '../screens/UsersScreen';
+import UsersScreen from '../screens/Users/UsersScreen';
 import UserDetailScreen from '../screens/UserDetails/UserDetailScreen';
+import UserImageScreen from '../screens/UserImage/UserImageScreen';
 
 export type RootStackParamList = {
   Users: undefined;
   UserDetail: {id: string; name: string};
+  UserImage: {url: string; name: string};
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
@@ -22,6 +24,16 @@ function RootStackNavigator() {
         component={UserDetailScreen}
         options={({route}) => ({
           title: `${route.params.name}`,
+        })}
+      />
+      <Stack.Screen
+        name="UserImage"
+        component={UserImageScreen}
+        options={({route}) => ({
+          title: `${route.params.name}`,
+          headerStyle: {backgroundColor: 'black'},
+          headerTintColor: 'white',
+          headerShadowVisible: false,
         })}
       />
     </Stack.Navigator>

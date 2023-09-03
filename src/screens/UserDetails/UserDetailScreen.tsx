@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {RootStackScreenProps} from '../../navigation/RootStackNavigator';
 import {SingleUserResponse, getUser} from '../../services/UserService';
 import ContactData from './ContactData';
 import FastImage from 'react-native-fast-image';
 
-function UserDetailScreen({route}: RootStackScreenProps<'UserDetail'>) {
+function UserDetailScreen({
+  route,
+  navigation,
+}: RootStackScreenProps<'UserDetail'>) {
   const [user, setUser] = useState<SingleUserResponse>({
     data: {
       id: '',
@@ -26,10 +29,20 @@ function UserDetailScreen({route}: RootStackScreenProps<'UserDetail'>) {
     fetchData();
   }, [route.params.id]);
 
+  const handleOnPressImage = () => {
+    navigation.navigate('UserImage', {
+      url: user.data.avatar,
+      name: `${user.data.first_name} ${user.data.last_name}`,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageWraper}>
-        <FastImage style={styles.image} source={{uri: user.data.avatar}} />
+        <Pressable onPress={handleOnPressImage}>
+          <FastImage style={styles.image} source={{uri: user.data.avatar}} />
+        </Pressable>
+
         <Text style={styles.name}>
           {user.data.first_name} {user.data.last_name}
         </Text>
