@@ -1,11 +1,11 @@
 import {StackScreenProps, createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import UsersScreen from '../screens/UsersScreen';
-import UserDetailScreen from '../screens/UserDetailScreen';
+import UserDetailScreen from '../screens/UserDetails/UserDetailScreen';
 
 export type RootStackParamList = {
   Users: undefined;
-  UserDetail: {id: number};
+  UserDetail: {id: string};
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
