@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 60,
     marginBottom: 8,
+    backgroundColor: 'gray',
   },
   section: {
     backgroundColor: 'white',

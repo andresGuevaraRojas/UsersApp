@@ -9,6 +9,7 @@ import {
   Text,
   Pressable,
 } from 'react-native';
+
 import {RootStackScreenProps} from '../../navigation/RootStackNavigator';
 import {User, getUsers} from '../../services/UserService';
 import UserListItem from '../../components/UserListItem';
@@ -21,16 +22,17 @@ function UsersScreen({navigation}: RootStackScreenProps<'Users'>) {
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      const usersResponse = await getUsers(5, currentPage);
-      setUsers(state => [...state, ...usersResponse.data]);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const usersResponse = await getUsers(5, currentPage);
+        setUsers(state => [...state, ...usersResponse.data]);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+      }
     }
-    try {
-      fetchData();
-    } catch (error) {
-      setLoading(false);
-    }
+
+    fetchData();
   }, [currentPage]);
 
   function onPressItem(item: User) {
