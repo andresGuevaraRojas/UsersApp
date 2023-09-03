@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {RootStackScreenProps} from '../../navigation/RootStackNavigator';
 import {SingleUserResponse, getUser} from '../../services/UserService';
 import ContactData from './ContactData';
+import FastImage from 'react-native-fast-image';
 
 function UserDetailScreen({route}: RootStackScreenProps<'UserDetail'>) {
   const [user, setUser] = useState<SingleUserResponse>({
@@ -28,19 +29,19 @@ function UserDetailScreen({route}: RootStackScreenProps<'UserDetail'>) {
   return (
     <View style={styles.container}>
       <View style={styles.imageWraper}>
-        <Image style={styles.image} source={{uri: user.data.avatar}} />
+        <FastImage style={styles.image} source={{uri: user.data.avatar}} />
         <Text style={styles.name}>
           {user.data.first_name} {user.data.last_name}
         </Text>
       </View>
 
-      <View style={styles.contactInformationSection}>
+      <View style={[styles.section, styles.contactInformationSection]}>
         <Text style={styles.sectionTitle}>Contact Information</Text>
         <ContactData label="First name: " value={user.data.first_name} />
         <ContactData label="Last name: " value={user.data.last_name} />
         <ContactData label="Email: " value={user.data.email} />
       </View>
-      <View>
+      <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
         <Text style={styles.about}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate
@@ -67,6 +68,11 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 60,
     marginBottom: 8,
+  },
+  section: {
+    backgroundColor: 'white',
+    padding: 8,
+    borderRadius: 10,
   },
   contactInformationSection: {
     marginBottom: 20,

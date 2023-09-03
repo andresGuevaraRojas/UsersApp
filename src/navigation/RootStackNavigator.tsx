@@ -5,7 +5,7 @@ import UserDetailScreen from '../screens/UserDetails/UserDetailScreen';
 
 export type RootStackParamList = {
   Users: undefined;
-  UserDetail: {id: string};
+  UserDetail: {id: string; name: string};
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
@@ -17,7 +17,13 @@ function RootStackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Users" component={UsersScreen} />
-      <Stack.Screen name="UserDetail" component={UserDetailScreen} />
+      <Stack.Screen
+        name="UserDetail"
+        component={UserDetailScreen}
+        options={({route}) => ({
+          title: `${route.params.name}`,
+        })}
+      />
     </Stack.Navigator>
   );
 }

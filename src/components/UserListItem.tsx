@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 type Props = {
   firstName: string;
@@ -13,7 +14,7 @@ function UserListItem({firstName, lastName, avatar, onPress}: Props) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image style={styles.image} source={{uri: avatar}} />
+      <FastImage style={styles.image} source={{uri: avatar}} />
       <Text style={styles.text}>{name}</Text>
     </TouchableOpacity>
   );
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     width: 60,
     aspectRatio: 1,
     borderRadius: 30,
+    backgroundColor: 'gray',
   },
 });
 export default UserListItem;
