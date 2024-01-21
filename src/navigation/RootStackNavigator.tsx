@@ -8,6 +8,7 @@ export type RootStackParamList = {
   Users: undefined;
   UserDetail: {id: string; name: string};
   UserImage: {url: string; name: string};
+  FlatList: undefined;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

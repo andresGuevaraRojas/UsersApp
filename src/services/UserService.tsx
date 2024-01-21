@@ -1,7 +1,7 @@
 import Config from 'react-native-config';
 
 export type User = {
-  id: '';
+  id: string;
   email: string;
   first_name: string;
   last_name: string;

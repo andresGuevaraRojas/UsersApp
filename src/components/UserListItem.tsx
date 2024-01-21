@@ -22,7 +22,7 @@ function UserListItem({firstName, lastName, avatar, onPress}: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 4,
+    paddingVertical: 8,
     paddingHorizontal: 8,
     flexDirection: 'row',
     alignItems: 'center',
@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   image: {
-    width: 60,
+    width: 80,
     aspectRatio: 1,
-    borderRadius: 30,
+    borderRadius: 40,
     backgroundColor: 'gray',
   },
 });
