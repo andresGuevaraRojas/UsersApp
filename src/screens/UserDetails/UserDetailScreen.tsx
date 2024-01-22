@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {RootStackScreenProps} from '../../navigation/RootStackNavigator';
 import {SingleUserResponse, getUser} from '../../services/UserService';
 import ContactData from './ContactData';
@@ -37,7 +37,7 @@ function UserDetailScreen({
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.imageWraper}>
         <Pressable onPress={handleOnPressImage}>
           <FastImage style={styles.image} source={{uri: user.data.avatar}} />
@@ -63,7 +63,7 @@ function UserDetailScreen({
           accusantium ipsa.
         </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
